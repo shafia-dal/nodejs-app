@@ -40,7 +40,7 @@ phases:
       - echo "Running any build scripts (if applicable)..."
       - # Add any build commands your application requires (e.g., building frontend assets)
       - echo "Building Docker image..."
-      - docker build -t my-nodejs-app .
+      - docker build -t my-nodejs-repo .
       - echo "Build completed. Docker image tagged as my-nodejs-app"
     finally:
       - echo "Build phase finished."
