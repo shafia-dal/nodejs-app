@@ -15,7 +15,8 @@ phases:
       nodejs: "$NODE_VERSION"
     commands:
       - echo "Starting install phase..."
-      - echo "Using Node.js version: $NODE_VERSION"
+      - echo "Using Node.js version:=$(node --version)"
+      - echo "Installing Node.js version:= $NODE_VERSION"
       - npm install -g npm
       - npm --version
     finally:
@@ -25,7 +26,7 @@ phases:
     on-failure: ABORT
     commands:
       - echo "Starting pre_build phase..."
-      - echo "Current directory: $(pwd)"
+      - echo "Current directory $(pwd)"
       - ls -al
       - echo "Installing dependencies..."
       - npm install
@@ -50,7 +51,7 @@ phases:
       - echo "Starting post_build phase..."
       - echo "Tagging Docker image for ECR..."
      
-      - AWS_REGION=$(aws configure get region)
+      - AWS_REGION="us-east-1"
       - IMAGE_REPO_NAME="my-nodejs-repo" # Replace with your ECR repository name
       - IMAGE_TAG="${BUILD_VERSION:-latest}"
       - docker tag my-nodejs-repo:latest 091846656105.dkr.ecr.us-east-1.amazonaws.com/my-nodejs-repo:latest
@@ -58,9 +59,9 @@ phases:
       - aws ecr get-login-password --region us-east-1 | docker login --username AWS --password-stdin 091846656105.dkr.ecr.us-east-1.amazonaws.com
       - echo "Pushing Docker image to ECR..."
       - docker push 091846656105.dkr.ecr.us-east-1.amazonaws.com/my-nodejs-repo:latest
-      - echo "Docker image pushed to ECR with tag: my-nodejs-repo"
+      - echo "Docker image pushed to ECR with tag my-nodejs-repo"
       - export IMAGE_URI=091846656105.dkr.ecr.us-east-1.amazonaws.com/my-nodejs-repo
-      - echo "Image URI: $IMAGE_URI"
+      - echo "Image URI $IMAGE_URI"
       - export BUILD_VERSION=$(date +%Y%m%d%H%M%S)
     finally:
       - echo "Post_build phase finished."
@@ -86,7 +87,7 @@ artifacts:
     - ".git/**"
     - "build-output/**"
   enable-symlinks: no
-  s3-prefix: "e2e-state-bucket" #smae we are using for storing artifact
+  s3-prefix: "e2e-state-bucket" #smae we are using for storing art
 
 cache:
   key: "npm-cache-{{ checksum 'package-lock.json' }}"
