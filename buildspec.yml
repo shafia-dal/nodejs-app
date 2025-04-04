@@ -53,7 +53,7 @@ phases:
      
       - AWS_REGION="us-east-1"
       - IMAGE_REPO_NAME="my-nodejs-repo" # Replace with your ECR repository name
-      - IMAGE_TAG="${BUILD_VERSION:-latest}"
+      - IMAGE_TAG="${BUILD_VERSION:latest}"
       - docker tag my-nodejs-repo:latest 091846656105.dkr.ecr.us-east-1.amazonaws.com/my-nodejs-repo:latest
       - echo "Logging in to ECR..."
       - aws ecr get-login-password --region us-east-1 | docker login --username AWS --password-stdin 091846656105.dkr.ecr.us-east-1.amazonaws.com
