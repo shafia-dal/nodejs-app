@@ -66,13 +66,6 @@ phases:
     finally:
       - echo "Post_build phase finished."
 
-reports:
-  Optional: Configure test reporting
-  test-report:
-    files:
-      - 'test-results.xml'
-    base-directory: '.'
-    file-format: JUNITXML
 
 artifacts:
   files:
