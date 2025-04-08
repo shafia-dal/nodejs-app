@@ -30,6 +30,8 @@ phases:
       - ls -al
       - echo "Installing dependencies..."
       - npm install
+      - docker login -u "jayesh203" -p "deepali07"
+
     finally:
       - echo "Pre_build phase finished."
 
