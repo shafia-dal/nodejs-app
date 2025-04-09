@@ -1,8 +1,3 @@
-# #!/bin/bash
-# # Replace 'my-nodejs-container' with the actual name of your Docker container
-# docker stop my-nodejs-repo
-# docker rm my-nodejs-repo
-
 #!/bin/bash
 CONTAINER_NAME="my-nodejs-repo"
 
