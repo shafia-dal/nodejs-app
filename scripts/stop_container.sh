@@ -4,7 +4,6 @@
 # docker rm my-nodejs-repo
 
 #!/bin/bash
-set -euo pipefail
 CONTAINER_NAME="my-nodejs-repo"
 
 echo "Trying to stop container: $CONTAINER_NAME"
