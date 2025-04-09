@@ -23,9 +23,9 @@ hooks:
       timeout: 600 # Increased timeout as container startup might take longer
       
 
-  ApplicationStop:
-    - location: scripts/stop_container.sh # Ensure container is stopped on stop deployment
-      timeout: 300
+  # ApplicationStop:
+  #   - location: scripts/stop_container.sh # Ensure container is stopped on stop deployment
+  #     timeout: 300
       
 
   ValidateService:
