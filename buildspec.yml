@@ -52,7 +52,6 @@ phases:
     commands:
       - echo "Starting post_build phase..."
       - echo "Tagging Docker image for ECR..."
-     
       - AWS_REGION="us-east-1"
       - IMAGE_REPO_NAME="my-nodejs-repo" # Replace with your ECR repository name
       - IMAGE_TAG="${BUILD_VERSION:latest}"
@@ -71,15 +70,14 @@ phases:
 
 artifacts:
   files:
-    - buildspec.yml # Include buildspec in artifacts for debugging if needed
     - appspec.yml   # You'll likely need an appspec.yml for CodeDeploy on EC2
     - scripts/**
 
-cache:
-  key: "npm-cache-{{ checksum 'package-lock.json' }}"
-  fallback-keys:
-    - "npm-cache-"
-  action: restore
-  paths:
-    - '$NPM_CACHE_PATH/**/*'
-    - 'node_modules/**/*'
+# cache:
+#   key: "npm-cache-{{ checksum 'package-lock.json' }}"
+#   fallback-keys:
+#     - "npm-cache-"
+#   action: restore
+#   paths:
+#     - '$NPM_CACHE_PATH/**/*'
+#     - 'node_modules/**/*'
