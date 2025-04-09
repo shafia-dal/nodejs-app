@@ -4,12 +4,12 @@ files:
   # This section is generally not needed for ECR-based deployments
   # as CodeDeploy doesn't directly copy files from the artifact.
   # You might include it if you have other configuration files to deploy.
-  - source: build-artifacts-$BUILD_VERSION.zip
+  - source: /
     destination: /tmp/codedeploy-artifact # Example destination for the build artifact
 
 hooks:
   BeforeInstall:
-    - location: stop_container.sh
+    - location: scripts/stop_container.sh
       timeout: 300
       runas: ubuntu # Or your web server user
 
