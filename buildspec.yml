@@ -74,15 +74,6 @@ artifacts:
     - buildspec.yml # Include buildspec in artifacts for debugging if needed
     - appspec.yml   # You'll likely need an appspec.yml for CodeDeploy on EC2
     - scripts/**
-  name: "build-artifacts-$BUILD_VERSION.zip"
-  discard-paths: yes
-  base-directory: "."
-  exclude-paths:
-    - "node_modules/**"
-    - ".git/**"
-    - "build-output/**"
-  enable-symlinks: no
-  s3-prefix: "e2e-state-bucket" #smae we are using for storing art
 
 cache:
   key: "npm-cache-{{ checksum 'package-lock.json' }}"
