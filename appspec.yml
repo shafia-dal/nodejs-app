@@ -5,7 +5,7 @@ files:
   # as CodeDeploy doesn't directly copy files from the artifact.
   # You might include it if you have other configuration files to deploy.
   - source: /
-    destination: /tmp/codedeploy-artifact # Example destination for the build artifact
+    destination: /opt/codedeploy-agent/deployment-root/ # Example destination for the build artifact
 
 hooks:
   BeforeInstall:
@@ -20,6 +20,10 @@ hooks:
   ApplicationStart:
     - location: scripts/run_container.sh
       timeout: 600 # Increased timeout as container startup might take longer
+  
+  ApplicationStop:
+  - location: scripts/noop.sh
+    timeout: 60
       
   ValidateService:
     - location: scripts/validate_service.sh # Optional health check script
