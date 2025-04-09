@@ -9,7 +9,7 @@ files:
 
 hooks:
   BeforeInstall:
-    - location: scripts/stop_container.sh
+    - location: stop_container.sh
       timeout: 300
       runas: ubuntu # Or your web server user
 

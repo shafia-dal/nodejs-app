@@ -73,7 +73,7 @@ artifacts:
   files:
     - buildspec.yml # Include buildspec in artifacts for debugging if needed
     - appspec.yml   # You'll likely need an appspec.yml for CodeDeploy on EC2
-    - scripts/* # Include any deployment scripts
+    - /scripts/* # Include any deployment scripts
   name: "build-artifacts-$BUILD_VERSION.zip"
   discard-paths: yes
   base-directory: "."
