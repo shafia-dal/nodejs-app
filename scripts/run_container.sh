@@ -9,7 +9,7 @@ echo "  Image: $AWS_ACCOUNT_ID.dkr.ecr.$AWS_REGION.amazonaws.com/$IMAGE_REPO_NAM
 echo "  Port Mapping: -p $APP_PORT:$APP_PORT"
 
 docker run -d --name my-nodejs-repo \
-    -p 4000:4000 \
+    -p 80:4000 \
     -e NODE_ENV=production \
     $AWS_ACCOUNT_ID.dkr.ecr.$AWS_REGION.amazonaws.com/$IMAGE_REPO_NAME:$IMAGE_TAG
 
