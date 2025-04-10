@@ -3,9 +3,9 @@ config();
 
 export const database = {
   connectionLimit: 10,
-  host: process.env.DATABASE_HOST || "localhost",
-  user: process.env.DATABASE_USER || "fazt",
-  password: process.env.DATABASE_PASSWORD || "mypassword",
+  host: process.env.DATABASE_HOST || "rds.cmwy9eiqvst3.us-east-1.rds.amazonaws.com",
+  user: process.env.DATABASE_USER || "rds",
+  password: process.env.DATABASE_PASSWORD || "password123",
   database: process.env.DATABASE_NAME || "linksdb",
   port: process.env.DATABASE_PORT || 3306,
 };
