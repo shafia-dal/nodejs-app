@@ -10,7 +10,6 @@ then
     echo "AWS CLI could not be found. Please install it."
     exit 1
 fi
-sudo apt install -y docker.io
 # Check if Docker is installed
 if ! command -v docker &> /dev/null
 then
