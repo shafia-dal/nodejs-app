@@ -12,6 +12,7 @@ docker run -d --name my-nodejs-repo \
     -p 80:4000 \
     $AWS_ACCOUNT_ID.dkr.ecr.$AWS_REGION.amazonaws.com/$IMAGE_REPO_NAME:$IMAGE_TAG
 
+# Check if the container started successfully
     if [ $? -eq 0 ]; then
   echo "Docker container '$CONTAINER_NAME' started successfully."
 else

@@ -3,7 +3,8 @@
 CONTAINER_NAME="my-nodejs-repo" # Replace with the actual name of your Docker container
 
 echo "Performing health check for Docker container: $CONTAINER_NAME"
-
+# Check if the container is running
+docker restart $CONTAINER_NAME
 # Check if the container is running
 if docker ps --filter "name=^${CONTAINER_NAME}$" --format "{{.Names}}" | grep -q "^${CONTAINER_NAME}$"; then
   echo "Docker container '$CONTAINER_NAME' is running."
